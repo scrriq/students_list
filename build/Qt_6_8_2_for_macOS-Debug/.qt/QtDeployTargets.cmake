@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_appTheNinthLab_FILE /Users/scrriq/QTLabs/TheNinthLab/build/Qt_6_8_2_for_macOS-Debug/appTheNinthLab)
+set(__QT_DEPLOY_TARGET_appTheNinthLab_TYPE EXECUTABLE)

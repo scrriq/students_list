@@ -1,0 +1,16 @@
+# ninja log v6
+6	196	1745441500880535325	.qt/qml_imports/appTheNinthLab_build.cmake	e61d116ac9ff174e
+6	196	1745441500880535325	/Users/scrriq/QTLabs/TheNinthLab/build/Qt_6_8_2_for_macOS-Release/.qt/qml_imports/appTheNinthLab_build.cmake	e61d116ac9ff174e
+196	1986	1745441502637079108	appTheNinthLab_autogen/timestamp	49471cfb9d7644a6
+196	1986	1745441502637079108	appTheNinthLab_autogen/mocs_compilation.cpp	49471cfb9d7644a6
+196	1986	1745441502637079108	/Users/scrriq/QTLabs/TheNinthLab/build/Qt_6_8_2_for_macOS-Release/appTheNinthLab_autogen/timestamp	49471cfb9d7644a6
+196	1986	1745441502637079108	/Users/scrriq/QTLabs/TheNinthLab/build/Qt_6_8_2_for_macOS-Release/appTheNinthLab_autogen/mocs_compilation.cpp	49471cfb9d7644a6
+1993	2047	1745441502732619572	appTheNinthLab_autogen/EWIEGA46WW/qrc_qml.cpp	c16f99d8be45cf1b
+1993	2047	1745441502732619572	/Users/scrriq/QTLabs/TheNinthLab/build/Qt_6_8_2_for_macOS-Release/appTheNinthLab_autogen/EWIEGA46WW/qrc_qml.cpp	c16f99d8be45cf1b
+2049	2452	1745441502738370617	CMakeFiles/appTheNinthLab.dir/appTheNinthLab_autogen/EWIEGA46WW/qrc_qml.cpp.o	7afbe2ca6b4dc28
+2048	6206	1745441502737053948	CMakeFiles/appTheNinthLab.dir/student.cpp.o	89b8316be3730ad3
+2047	6644	1745441502736042856	CMakeFiles/appTheNinthLab.dir/appTheNinthLab_autogen/mocs_compilation.cpp.o	b123aceb8fb01f05
+2047	6801	1745441502736525109	CMakeFiles/appTheNinthLab.dir/main.cpp.o	d4fc277d69f1046a
+2048	7007	1745441502736790786	CMakeFiles/appTheNinthLab.dir/back.cpp.o	91ec806156eb9f0d
+2048	8198	1745441502737418129	CMakeFiles/appTheNinthLab.dir/studentmodel.cpp.o	fcaf6a39d342e78a
+8198	8620	1745441508887482940	appTheNinthLab	b506a1aab0216a48

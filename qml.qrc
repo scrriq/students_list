@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/Main.qml</file>
+        <file>qml/StudentGridView.qml</file>
+        <file>qml/AddStudentForm.qml</file>
+        <file>qml/CustomDatePicker.qml</file>
+    </qresource>
+</RCC>

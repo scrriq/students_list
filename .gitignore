@@ -1,0 +1,45 @@
+# Файлы и каталоги сборки
+build-*/
+*.o
+*.obj
+*.so
+*.dll
+*.dylib
+*.a
+*.lib
+*.exe
+*.app
+*.app.dSYM/
+*.dSYM/
+
+# Файлы Qt Creator
+*.autosave
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+*.qmlproject.user
+*.qmlproject.user.*
+*.creator.user
+*.creator.user.*
+
+# Файлы, сгенерированные Qt (MOC, UIC, RCC)
+moc_*.cpp
+moc_*.h
+ui_*.h
+qrc_*.cpp
+
+# Кэш и временные файлы
+*.qmake.cache
+*.qmake.stash
+*.qmlc
+*.jsc
+*.swp
+*.bak
+*.tmp
+
+# Системные файлы macOS
+.DS_Store
+
+# Исключение для включения собранного .app файла
+!releases/*.app
