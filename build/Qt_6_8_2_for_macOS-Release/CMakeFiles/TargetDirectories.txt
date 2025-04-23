@@ -1,6 +1,0 @@
-/Users/scrriq/QTLabs/TheNinthLab/build/Qt_6_8_2_for_macOS-Release/CMakeFiles/appTheNinthLab.dir
-/Users/scrriq/QTLabs/TheNinthLab/build/Qt_6_8_2_for_macOS-Release/CMakeFiles/appTheNinthLab_qmlimportscan.dir
-/Users/scrriq/QTLabs/TheNinthLab/build/Qt_6_8_2_for_macOS-Release/CMakeFiles/edit_cache.dir
-/Users/scrriq/QTLabs/TheNinthLab/build/Qt_6_8_2_for_macOS-Release/CMakeFiles/rebuild_cache.dir
-/Users/scrriq/QTLabs/TheNinthLab/build/Qt_6_8_2_for_macOS-Release/CMakeFiles/appTheNinthLab_autogen_timestamp_deps.dir
-/Users/scrriq/QTLabs/TheNinthLab/build/Qt_6_8_2_for_macOS-Release/CMakeFiles/appTheNinthLab_autogen.dir

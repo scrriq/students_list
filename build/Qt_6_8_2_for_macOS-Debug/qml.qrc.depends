@@ -1,8 +1,0 @@
-<RCC>
-    <qresource prefix="/qml">
-        <file>qml/Main.qml</file>
-        <file>qml/StudentGridView.qml</file>
-        <file>qml/AddStudentForm.qml</file>
-        <file>students_list.txt</file>
-    </qresource>
-</RCC>

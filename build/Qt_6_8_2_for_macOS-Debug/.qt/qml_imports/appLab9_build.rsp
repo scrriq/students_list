@@ -1,9 +1,0 @@
--rootPath
-/Users/scrriq/QTLabs/TheNinthLab
--cmake-output
--output-file
-/Users/scrriq/QTLabs/TheNinthLab/build/Qt_6_8_2_for_macOS-Debug/.qt/qml_imports/appLab9_build.cmake
--importPath
-/Users/scrriq/QTLabs/TheNinthLab/build/Qt_6_8_2_for_macOS-Debug
--importPath
-/Users/scrriq/Qt/6.8.2/macos/qml
