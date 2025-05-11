@@ -8,6 +8,15 @@ Rectangle {
     color: "transparent"
     signal addStudentRequested
 
+    property bool acquaintanceView: backend.model ? backend.model.acquaintanceView : false
+
+    Connections {
+        target: backend.model
+        function onAcquaintanceViewChanged() {
+            acquaintanceView = backend.model.acquaintanceView
+        }
+    }
+
     RowLayout {
         anchors.fill: parent
         spacing: 10
@@ -29,6 +38,7 @@ Rectangle {
             padding: 3
             topPadding: 3
             bottomPadding: 3
+            property bool acquaintanceView: backend.model.acquaintanceView
             // Заголовки — теперь RowLayout
             RowLayout {
                 id: headerRow
@@ -49,19 +59,19 @@ Rectangle {
 
                 Text {
                     text: "Фамилия"
-                    Layout.preferredWidth: 100
+                    Layout.preferredWidth: 100 + acquaintanceView * 40
                     horizontalAlignment: Text.AlignLeft
                     verticalAlignment: Text.AlignVCenter
                 }
                 Text {
                     text: "Имя"
-                    Layout.preferredWidth: 100
+                    Layout.preferredWidth: 100 + acquaintanceView * 35
                     horizontalAlignment: Text.AlignLeft
                     verticalAlignment: Text.AlignVCenter
                 }
                 Text {
                     text: "Отчество"
-                    Layout.preferredWidth: 120
+                    Layout.preferredWidth: 120 + acquaintanceView * 55
                     horizontalAlignment: Text.AlignLeft
                     verticalAlignment: Text.AlignVCenter
                 }
@@ -70,22 +80,25 @@ Rectangle {
                     Layout.preferredWidth: 120
                     horizontalAlignment: Text.AlignLeft
                     verticalAlignment: Text.AlignVCenter
+                    visible: !acquaintanceView
                 }
                 Text {
                     text: "Рост (м)"
                     Layout.preferredWidth: 80
                     horizontalAlignment: Text.AlignLeft
                     verticalAlignment: Text.AlignVCenter
+                    visible: !acquaintanceView
                 }
                 Text {
                     text: "Город"
-                    Layout.preferredWidth: 140
+                    Layout.preferredWidth: 140 + acquaintanceView * 50
                     horizontalAlignment: Text.AlignLeft
                     verticalAlignment: Text.AlignVCenter
+
                 }
                 Text {
                     text: "Возраст"
-                    Layout.preferredWidth: 80
+                    Layout.preferredWidth: 80 + acquaintanceView * 50
                     horizontalAlignment: Text.AlignLeft
                     verticalAlignment: Text.AlignVCenter
                 }
@@ -144,12 +157,14 @@ Rectangle {
                             Layout.preferredWidth: 120
                             horizontalAlignment: Text.AlignLeft
                             verticalAlignment: Text.AlignVCenter
+                            visible: !acquaintanceView
                         }
                         Text {
                             text: studentHeight.toFixed(2)
                             Layout.preferredWidth: 80
                             horizontalAlignment: Text.AlignLeft
                             verticalAlignment: Text.AlignVCenter
+                            visible: !acquaintanceView
                         }
                         Text {
                             text: city
@@ -194,7 +209,10 @@ Rectangle {
                 Button { text: "Год"; onClicked: backend.model.filterByYear(parseInt(yearInput.text)) }
             }
 
-            Button { text: "Знакомство";          onClicked: backend.model.viewAcquaintance() }
+            Button {
+                text: "Знакомство"
+                onClicked: backend.model.viewAcquaintance()
+            }
             Button { text: "Дальний гость";       onClicked: backend.model.sortByDistanceAndSurname() }
             Button { text: "Алфавит";             onClicked: backend.model.sortAlphabetic() }
         }

@@ -50,18 +50,36 @@ Rectangle {
             text: "Добавить студента"
             Layout.alignment: Qt.AlignHCenter
             onClicked: {
-                var pattern = /^[А-ЯЁ][а-яё]+$/;
-                if (!pattern.test(tfName.text)) {
-                    errorMessage.text = "Некорректное имя"; errorDialog.open(); return
+                // Имя: каждое слово начинается с заглавной, за ним строчные; между словами ровно один пробел
+                var namePattern    = /^[А-ЯЁ][а-яё]+(?: [А-ЯЁ][а-яё]+)*$/;
+                // Фамилия: одно слово с необязательным "-ВтораяЧасть", дефис не в начале и не в конце
+                var surnamePattern = /^[А-ЯЁ][а-яё]+(?:-[А-ЯЁ][а-яё]+)?$/;
+                // Отчество: одно слово без дефисов/пробелов, но может быть пустым
+                var patPattern     = /^[А-ЯЁ][а-яё]+$/;
+
+                // Проверяем имя
+                if (!namePattern.test(tfName.text)) {
+                    errorMessage.text = "Некорректное имя";
+                    errorDialog.open();
+                    return;
                 }
-                if (!pattern.test(tfSurname.text)) {
-                    errorMessage.text = "Некорректная фамилия"; errorDialog.open(); return
+
+                // Проверяем фамилию
+                if (!surnamePattern.test(tfSurname.text)) {
+                    errorMessage.text = "Некорректная фамилия";
+                    errorDialog.open();
+                    return;
                 }
-                if (!pattern.test(tfPat.text)) {
-                    errorMessage.text = "Некорректное отчество"; errorDialog.open();return
+
+                // Проверяем отчество только если оно непустое
+                if (tfPat.text !== "" && !patPattern.test(tfPat.text)) {
+                    errorMessage.text = "Некорректное отчество";
+                    errorDialog.open();
+                    return;
                 }
-                var dateString = Qt.formatDate(datePicker.selectedDate, "dd.MM.yyyy").toString();
-                if(tfHeight.text === "") tfHeight.text = 0
+
+                var dateString = Qt.formatDate(datePicker.selectedDate, "dd.MM.yyyy");
+                if (tfHeight.text === "") tfHeight.text = "0";
                 backend.addStudentFromString(
                     tfSurname.text,
                     tfName.text,
@@ -73,6 +91,7 @@ Rectangle {
                 studentAdded();
             }
         }
+
     }
 
     Dialog {

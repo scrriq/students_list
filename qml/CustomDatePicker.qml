@@ -31,7 +31,7 @@ Item {
             MonthGrid {
                 id: grid
                 month: root.selectedDate.getMonth() + 1
-                year:  root.selectedDate.getFullYear()
+                year: root.selectedDate.getFullYear()
                 locale: Qt.locale()
                 Layout.fillWidth: true
                 Layout.fillHeight: true
@@ -43,9 +43,54 @@ Item {
             }
 
             RowLayout {
-                spacing: 10; Layout.alignment: Qt.AlignHCenter
-                Button { text: "<"; onClicked: if (grid.month>1) grid.month--; else { grid.month=12; grid.year--; } }
-                Button { text: ">"; onClicked: if (grid.month<12) grid.month++; else { grid.month=1; grid.year++; } }
+                spacing: 10
+                Layout.alignment: Qt.AlignHCenter
+
+                Button {
+                    text: "<"
+                    onClicked: {
+                        if (grid.month > 1) {
+                            grid.month--
+                        } else {
+                            grid.month = 12
+                            grid.year--
+                            yearSelector.value = grid.year
+                        }
+                    }
+                }
+
+                Text {
+                    text: Qt.locale().standaloneMonthName(grid.month) + " " + grid.year
+                    font.bold: true
+                }
+
+                Button {
+                    text: ">"
+                    onClicked: {
+                        if (grid.month < 12) {
+                            grid.month++
+                        } else {
+                            grid.month = 1
+                            grid.year++
+                            yearSelector.value = grid.year
+                        }
+                    }
+                }
+            }
+
+            RowLayout {
+                Layout.alignment: Qt.AlignHCenter
+                spacing: 10
+
+                Text { text: "Год:" }
+
+                SpinBox {
+                    id: yearSelector
+                    from: 0
+                    to: 2100
+                    value: root.selectedDate.getFullYear()
+                    onValueChanged: grid.year = value
+                }
             }
         }
     }

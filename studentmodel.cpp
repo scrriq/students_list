@@ -20,6 +20,20 @@ StudentModel::StudentModel(QObject *parent)
     : QAbstractListModel(parent)
 {}
 
+
+void StudentModel::setAcquaintanceView(bool value) {
+    if (m_acquaintanceView != value) {
+        m_acquaintanceView = value;
+        emit acquaintanceViewChanged();
+    }
+}
+
+void StudentModel::viewAcquaintance() {
+    setAcquaintanceView(true);
+    reset();
+}
+
+
 int StudentModel::rowCount(const QModelIndex &parent) const {
     Q_UNUSED(parent)
     return m_filtered.size();
@@ -95,7 +109,9 @@ void StudentModel::reset() {
     beginResetModel();
     m_filtered = m_all;
     endResetModel();
+    // setAcquaintanceView(true);
 }
+
 
 void StudentModel::applyFilter(const std::function<bool(Student*)> &predicate) {
     beginResetModel();
@@ -107,9 +123,9 @@ void StudentModel::applyFilter(const std::function<bool(Student*)> &predicate) {
 }
 
 void StudentModel::filterCity(const QString &city) {
+    setAcquaintanceView(false);
     applyFilter([&](Student* s){ return s->city() != city; });
 }
-
 void StudentModel::filterAdults() {
     applyFilter([](Student* s){ return s->age() < 18; });
 }
@@ -118,10 +134,6 @@ void StudentModel::filterByYear(int year) {
     applyFilter([&](Student* s){ return s->birthDate().year() != year; });
 }
 
-void StudentModel::viewAcquaintance() {
-    reset();
-    // В QML можно скрыть ненужные колонки
-}
 
 void StudentModel::sortByDistanceAndSurname() {
     beginResetModel();
